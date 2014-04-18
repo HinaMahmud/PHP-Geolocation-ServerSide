@@ -3,7 +3,7 @@
 
 $hostName = "mysql.serversfree.com";
 $userName = "u274841067_kpit";
-$password = "omer123456";
+$password = "my password";
 $dbName = "u274841067_kpit";
 
 
