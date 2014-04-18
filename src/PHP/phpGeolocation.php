@@ -37,15 +37,23 @@ if(!$result)
 while ($row = mysqli_fetch_array($result)) {
 
 	echo $row['PlaceofCurrentPosting'].'</br>';
-  // SET ADDRESS
+	
+	
+  // setting address
   $address = urlencode($row['PlaceofCurrentPosting']." Pakistan");
 	echo $address.'</br>';
+	
+	
   // url for http request
   $link = "http://maps.google.com/maps/geo?q=".$address."&key=".$api_key."&sensor=false&output=csv&oe=utf8";
 	echo 'retrieving</br>';
+	
+	
   // getting file content
   $page = file_get_contents($link);
 	echo 'file content</br>';
+	
+	
   // obtaining data from give csv
   list($status, $accuracy, $latitude, $longitude) = explode(",", $page);
 	echo $latitude.'</br>';
@@ -59,7 +67,7 @@ while ($row = mysqli_fetch_array($result)) {
     echo $row." - ERROR<br />";
   }
 
-  // avoid contact rejection because of query bombing`
+  // avoiding getting screwed by google
   sleep(3);
 }
 
